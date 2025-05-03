@@ -24,9 +24,17 @@ private slots:
 
 private:
     Ui::RegisterDialog *ui;
+    bool checkUserValid();
+    bool checkEmailValid();
+    bool checkPassValid();
+    bool checkVarifyValid();
+    bool checkConfirmValid();
+    void AddTipErr(TipErr te,QString tips);
+    void DelTipErr(TipErr te);
     void showTip(QString str,bool b_ok);
     void initHttpHandlers();
     QMap<ReqId,std::function<void(const QJsonObject&)>> _handlers;
+    QMap<TipErr,QString> _tip_errs;
 };
 
 #endif // REGISTERDIALOG_H
